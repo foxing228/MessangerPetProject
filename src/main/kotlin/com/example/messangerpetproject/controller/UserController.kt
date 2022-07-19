@@ -1,14 +1,13 @@
-package messanger.project.controller
+package com.example.messangerpetproject.controller
 
-import messanger.project.model.User
-import messanger.project.service.UserService
-import org.springframework.beans.factory.annotation.Autowired
+import com.example.messangerpetproject.model.User
+import com.example.messangerpetproject.service.UserService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/user")
-class UserController(
+open class UserController(
     val userService: UserService
 ) {
 

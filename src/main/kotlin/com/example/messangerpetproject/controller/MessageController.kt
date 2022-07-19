@@ -1,7 +1,7 @@
-package messanger.project.controller
+package com.example.messangerpetproject.controller
 
-import messanger.project.model.Message
-import messanger.project.service.MessageService
+import com.example.messangerpetproject.model.Message
+import com.example.messangerpetproject.service.MessageService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 

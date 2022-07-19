@@ -1,8 +1,8 @@
-package messanger.project.controller
+package com.example.messangerpetproject.controller
 
-import messanger.project.model.Chat
-import messanger.project.model.User
-import messanger.project.service.ChatService
+import com.example.messangerpetproject.model.Chat
+import com.example.messangerpetproject.model.User
+import com.example.messangerpetproject.service.ChatService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -15,7 +15,7 @@ class ChatController (
 
     @PostMapping("/chats-create")
     @ResponseStatus(HttpStatus.CREATED)
-    fun createChat(@RequestBody users: HashSet<User>) {
+    fun createChat(@RequestBody users: HashSet<String>) {
         chatService.createChat(users)
     }
 
@@ -38,6 +38,11 @@ class ChatController (
     @DeleteMapping("/chats-delUser")
     fun deleteUserFromChat(@RequestBody chat: Chat, user: User){
         chatService.deleteUserFromChat(chat, user)
+    }
+
+    @GetMapping("/get-chat-id")
+    fun getChatById(@RequestParam chatId: String){
+        chatService.getChatById(chatId)
     }
 
 }

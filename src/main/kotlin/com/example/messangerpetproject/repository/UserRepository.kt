@@ -1,13 +1,13 @@
-package messanger.project.repository
+package com.example.messangerpetproject.repository
 
-import messanger.project.model.User
+import com.example.messangerpetproject.model.User
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface UserRepository: MongoRepository<User, String> {
 
-    fun findByUserName(userName: String): User?
+    fun findByName(userName: String): User?
 
     fun findByPhoneNumber(phoneNumber: String): User?
 
-    fun findByUserId(id: String): User
+
 }

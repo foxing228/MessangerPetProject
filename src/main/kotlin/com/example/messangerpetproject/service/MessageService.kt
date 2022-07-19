@@ -1,6 +1,6 @@
-package messanger.project.service
+package com.example.messangerpetproject.service
 
-import messanger.project.model.Message
+import com.example.messangerpetproject.model.Message
 
 interface MessageService {
 

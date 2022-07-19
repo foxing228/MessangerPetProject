@@ -1,5 +1,7 @@
-package messanger.project.model
+package com.example.messangerpetproject.model
 
+import com.example.messangerpetproject.model.Message
+import com.example.messangerpetproject.model.User
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.FieldType
 import org.springframework.data.mongodb.core.mapping.MongoId
@@ -9,8 +11,8 @@ data class Chat(
     @MongoId(value = FieldType.OBJECT_ID)
     val id: String = "",
     val name: String = "",
-    val messages: List<Message> = emptyList(),
-    var users: HashSet<User> = emptySet<User>() as HashSet<User>
+    val messageIds: List<String> = emptyList(),
+    var userIds: Set<String> = emptySet<String>() as HashSet<String>
 ) {
 
 }

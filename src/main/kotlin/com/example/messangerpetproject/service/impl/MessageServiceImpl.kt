@@ -1,11 +1,13 @@
-package messanger.project.service.Impl
+package com.example.messangerpetproject.service.impl
 
-import messanger.project.model.Message
+import com.example.messangerpetproject.model.Message
 import org.springframework.beans.factory.annotation.Autowired
-import messanger.project.repository.MessageRepository
-import messanger.project.service.MessageService
+import com.example.messangerpetproject.repository.MessageRepository
+import com.example.messangerpetproject.service.MessageService
+import org.springframework.stereotype.Service
 import java.time.LocalDateTime
 
+@Service
 class MessageServiceImpl(
     @Autowired
     val messageRepository: MessageRepository
@@ -13,11 +15,10 @@ class MessageServiceImpl(
 
 
     override fun sendMessage(message: Message) {
-        val messageSend: Message = Message()
-        messageSend.text = message.text
-        messageSend.messageChatId = message.messageChatId
-        messageSend.messageUserId = message.messageUserId
-        messageSend.datetime = LocalDateTime.now().toString()
+        val messageSend: Message = Message(text = message.text,
+            messageChatId = message.messageChatId,
+            messageUserId = message.messageUserId,
+            datetime = LocalDateTime.now().toString())
         messageRepository.save(messageSend)
     }
 
@@ -27,9 +28,9 @@ class MessageServiceImpl(
     }
 
     override fun editMessage(message: Message): Message {
-        val messageUpdate: Message = messageRepository.findMessageById(message.id)
-        messageUpdate.text=message.text
-        messageUpdate.datetime=message.datetime
+        val messageUpdate: Message = messageRepository.findMessageById(message.id!!)
+            .copy(text = message.text,
+                datetime = message.datetime)
         return messageRepository.save(messageUpdate)
     }
 

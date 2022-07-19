@@ -1,9 +1,9 @@
-package messanger.project.service
+package com.example.messangerpetproject.service
 
-import messanger.project.model.User
+import com.example.messangerpetproject.model.User
 import org.springframework.stereotype.Service
 
-@Service
+
 interface UserService {
 
     fun createUser(user: User)

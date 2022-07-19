@@ -1,6 +1,6 @@
-package messanger.project.repository
+package com.example.messangerpetproject.repository
 
-import messanger.project.model.Message
+import com.example.messangerpetproject.model.Message
 import org.springframework.data.mongodb.repository.MongoRepository
 
 interface MessageRepository: MongoRepository<Message, String> {

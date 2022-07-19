@@ -1,4 +1,4 @@
-package messanger.project.model
+package com.example.messangerpetproject.model
 
 import org.bson.types.ObjectId
 import org.springframework.data.annotation.Id
@@ -9,9 +9,9 @@ import org.springframework.data.mongodb.core.mapping.MongoId
 @Document("messages")
 data class Message(
     @MongoId(value = FieldType.OBJECT_ID)
-    var id: String= "",
-    var datetime: String = "",
-    var text: String = "",
-    var messageChatId: Int = -1,
-    var messageUserId: Int= -1
+    val id: String? = null,
+    val datetime: String,
+    val text: String,
+    val messageChatId: Int,
+    val messageUserId: Int
 )
