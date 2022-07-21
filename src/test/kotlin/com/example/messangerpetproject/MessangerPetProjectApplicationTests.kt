@@ -11,23 +11,6 @@ class MessangerPetProjectApplicationTests(
     private val userService: UserService
 ) {
 
-//    @Test
-//    fun contextLoads() {
-//    }
 
-    @BeforeEach
-    fun init(){
-        //val userService = UserServiceImpl()
-    }
-
-    @AfterEach
-    fun afterEach(){
-
-    }
-
-    @Test
-    fun `should find user by id`(){
-
-    }
 
 }

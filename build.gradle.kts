@@ -21,11 +21,15 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.github.sirayan.genericdb-mongo:generic-db:0.0.3")
-    implementation("junit:junit:4.13.1")
+//    testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.7.10")
+    testImplementation(kotlin("test"))
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation ("org.mongodb:mongodb-driver-sync:4.6.0")
+    testImplementation(kotlin("test"))
 }
-
+tasks.test {
+    useJUnitPlatform()
+}
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")

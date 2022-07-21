@@ -12,6 +12,6 @@ data class Message(
     val id: String? = null,
     val datetime: String,
     val text: String,
-    val messageChatId: Int,
-    val messageUserId: Int
+    val messageChatId: String,
+    val messageUserId: String
 )
