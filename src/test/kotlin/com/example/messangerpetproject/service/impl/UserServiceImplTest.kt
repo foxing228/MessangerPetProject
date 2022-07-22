@@ -75,7 +75,7 @@ internal class UserServiceImplTest(
     fun `should find user by user id`(){
         Mockito.`when`(userRepository.findById("62d6bf4cd3053219b8852911")).thenReturn(Optional.of(user))
         userService.findByUserId("62d6bf4cd3053219b8852911")
-        Mockito.verify(userRepository, Mockito.times(1)).findById("62d6bf4cd3053219b8852911")
+        Mockito.verify(userRepository, Mockito.times(2)).findById("62d6bf4cd3053219b8852911")
     }
 
     /*

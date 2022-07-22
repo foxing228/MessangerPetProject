@@ -15,7 +15,9 @@ class MessageServiceImpl(
 
 
     override fun sendMessage(message: Message) {
-        val messageSend: Message = Message(text = message.text,
+        val messageSend: Message = Message(
+            id = message.id,
+            text = message.text,
             messageChatId = message.messageChatId,
             messageUserId = message.messageUserId,
             datetime = LocalDateTime.now().toString())

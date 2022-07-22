@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId
 @Document("messages")
 data class Message(
     @MongoId(value = FieldType.OBJECT_ID)
-    val id: String? = null,
+    val id: String?,
     val datetime: String,
     val text: String,
     val messageChatId: String,

@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId
 @Document("chats")
 data class Chat(
     @MongoId(value = FieldType.OBJECT_ID)
-    val id: String = "",
+    val id: String? = "",
     val name: String = "",
     val messageIds: List<String> = emptyList(),
     var userIds: Set<String> = emptySet<String>() as HashSet<String>
