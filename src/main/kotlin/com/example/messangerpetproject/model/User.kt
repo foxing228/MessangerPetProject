@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId
 @Document("users")
 data class User(
     @MongoId(value = FieldType.OBJECT_ID)
-    val id: String?,
+    val id: String? = null,
     val name: String,
     val phoneNumber: String,
     val bio: String,

@@ -17,8 +17,8 @@ class MessageController(
     }
 
     @PutMapping("/messages-edit")
-    fun editMessage(@RequestBody message: Message) {
-        messageService.editMessage(message)
+    fun editMessage(@RequestBody message: Message): Message {
+       return messageService.editMessage(message)
     }
 
     @DeleteMapping("/messages-delete/{id}")

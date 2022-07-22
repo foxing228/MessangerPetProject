@@ -3,6 +3,7 @@ package com.example.messangerpetproject.controller
 import com.example.messangerpetproject.model.User
 import com.example.messangerpetproject.service.UserService
 import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -33,8 +34,8 @@ open class UserController(
     }
 
     @PutMapping("/users-update")
-    fun updateUser(@RequestBody user: User) {
-        userService.updateUser(user)
+    fun updateUser(@RequestBody user: User): User{
+        return userService.updateUser(user)
     }
 
     @DeleteMapping("/users-delete/{id}")

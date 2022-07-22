@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.junit.jupiter.api.extension.ExtendWith
+import org.mockito.ArgumentMatchers.any
 import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito
@@ -44,12 +45,12 @@ internal class MessageServiceImplTest{
     @Test
     fun `should create a message`(){
         messageService.sendMessage(message)
-        Mockito.verify(messageRepository, Mockito.times(1)).save(message)
+        Mockito.verify(messageRepository, Mockito.times(1)).save(any(Message::class.java))
     }
 
     @Test
     fun `should delete a message`(){
-        Mockito.`when`(messageRepository.findById("1")).thenReturn(Optional.of(message))
+        Mockito.`when`(messageRepository.findMessageById("1")).thenReturn(message)
         messageService.deleteMessage("1")
         Mockito.verify(messageRepository, Mockito.times(1)).delete(message)
     }
@@ -60,4 +61,7 @@ internal class MessageServiceImplTest{
         messageService.findMessage("Some text for text")
         Mockito.verify(messageRepository, Mockito.times(1)).findMessageByText("Some text for text")
     }
+
+    //update message
+
 }

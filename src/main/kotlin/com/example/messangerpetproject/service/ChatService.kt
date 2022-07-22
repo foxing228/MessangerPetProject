@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service
 
 interface ChatService {
 
-    fun createChat(userIds: HashSet<String>): Chat
+    fun createChat(userIds: Set<String>): Chat
     fun deleteChat(name: Chat)
 
     fun addUserToTheChat(chat: Chat, user: User)

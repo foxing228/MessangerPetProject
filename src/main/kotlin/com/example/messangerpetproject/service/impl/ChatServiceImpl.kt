@@ -16,10 +16,10 @@ class ChatServiceImpl(
     @Autowired
     val chatRepository: ChatRepository,
     @Autowired
-    val userRepository: UserRepository,
-    val messageRepository: MessageRepository
+    val userRepository: UserRepository?,
+    val messageRepository: MessageRepository?
 ) : ChatService {
-    override fun createChat(userIds: HashSet<String>): Chat {
+    override fun createChat(userIds: Set<String>): Chat {
         val chat: Chat = Chat()
         val set = HashSet(userIds)
         chat.userIds = set
@@ -53,11 +53,11 @@ class ChatServiceImpl(
 
     override fun getChatById(chatId: String): FullChat {
         val chat = chatRepository.getChatById(chatId)
-        val userList = chat!!.userIds.map {
-            userRepository.findById(it).get()
+        val userList = chat!!.userIds!!.map {
+            userRepository!!.findById(it).get()
         }.toList()
-        val messageList = chat.messageIds.map {
-            messageRepository.findById(it).get()
+        val messageList = chat.messageIds!!.map {
+            messageRepository!!.findById(it).get()
         }.toList()
 
         return FullChat(chat, userList, messageList)

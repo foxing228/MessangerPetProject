@@ -15,7 +15,7 @@ class ChatController (
 
     @PostMapping("/chats-create")
     @ResponseStatus(HttpStatus.CREATED)
-    fun createChat(@RequestBody users: HashSet<String>) {
+    fun createChat(@RequestBody users: Set<String>) {
         chatService.createChat(users)
     }
 
